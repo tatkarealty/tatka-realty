@@ -1,0 +1,69 @@
+# Decap CMS settings for tatkarealty.com/admin
+backend:
+  name: github
+  repo: tatkarealty/tatka-realty
+  branch: main
+  commit_messages:
+    update: "Update {{collection}}: {{slug}}"
+
+site_url: https://tatkarealty.com
+display_url: https://tatkarealty.com
+logo_url: ""
+media_folder: images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: listings
+    label: Listings
+    editor: {preview: false}
+    files:
+      - name: residential
+        label: Residential homes
+        file: content/residential.json
+        format: json
+        fields:
+          - label: Homes
+            name: listings
+            widget: list
+            summary: "{{fields.title}} — {{fields.city}} — {{fields.price}}"
+            fields:
+              - {label: "Show on site", name: active, widget: boolean, default: true, hint: "Turn off to hide a listing without deleting it"}
+              - {label: "Title", name: title, widget: string}
+              - {label: "Property type", name: type, widget: select, options: ["Single-family", "Condo / townhome", "New construction", "Lot"]}
+              - {label: "Sale or rent", name: deal, widget: select, options: [{label: "For sale", value: "Sale"}, {label: "For rent", value: "Rent"}]}
+              - {label: "City", name: city, widget: select, options: ["Phoenix", "North Phoenix", "Deer Valley", "Paradise Valley", "Scottsdale", "Tempe", "Mesa", "Gilbert", "Chandler", "Queen Creek", "Glendale", "Peoria", "Surprise", "Goodyear", "Avondale", "Buckeye", "Cave Creek", "Fountain Hills", "Other Valley location"], hint: "Places the pin on the map"}
+              - {label: "Area", name: area, widget: string, required: false, hint: "Neighborhood or cross streets"}
+              - {label: "Size", name: size, widget: string, required: false, hint: "e.g. 4 bed, 3 bath, 2,450 SF"}
+              - {label: "Price", name: price, widget: string, hint: "Or: Contact for pricing"}
+              - {label: "Price note", name: priceNote, widget: string, required: false, hint: "Shown under the price"}
+              - {label: "Short description", name: desc, widget: string, required: false, hint: "One line shown in the listings"}
+              - {label: "Full description", name: details, widget: text, required: false, hint: "Shown on the property page. Leave a blank line between paragraphs."}
+              - {label: "Key facts", name: facts, widget: text, required: false, hint: "One per line, as Label: Value — for example Beds: 4"}
+              - {label: "Features", name: features, widget: text, required: false, hint: "One per line — for example Heated pool"}
+              - {label: "More info link", name: link, widget: string, required: false, hint: "Optional: virtual tour, MLS page or flyer (https://…)"}
+              - {label: "Photos", name: photos, widget: list, summary: "{{fields.image}}", hint: "Drag to reorder. The first photo is the cover.", field: {label: "Photo", name: image, widget: image}}
+      - name: commercial
+        label: Commercial properties
+        file: content/commercial.json
+        format: json
+        fields:
+          - label: Properties
+            name: listings
+            widget: list
+            summary: "{{fields.title}} — {{fields.city}} — {{fields.price}}"
+            fields:
+              - {label: "Show on site", name: active, widget: boolean, default: true, hint: "Turn off to hide a listing without deleting it"}
+              - {label: "Title", name: title, widget: string}
+              - {label: "Property type", name: type, widget: select, options: ["Office", "Medical", "Industrial", "Retail", "Land"]}
+              - {label: "Sale or lease", name: deal, widget: select, options: [{label: "For sale", value: "Sale"}, {label: "For lease", value: "Lease"}]}
+              - {label: "City", name: city, widget: select, options: ["Phoenix", "North Phoenix", "Deer Valley", "Paradise Valley", "Scottsdale", "Tempe", "Mesa", "Gilbert", "Chandler", "Queen Creek", "Glendale", "Peoria", "Surprise", "Goodyear", "Avondale", "Buckeye", "Cave Creek", "Fountain Hills", "Other Valley location"], hint: "Places the pin on the map"}
+              - {label: "Area", name: area, widget: string, required: false, hint: "Neighborhood or cross streets"}
+              - {label: "Size", name: size, widget: string, required: false, hint: "e.g. 12,500 SF or 2.40 acres"}
+              - {label: "Price", name: price, widget: string, hint: "Or: Contact for pricing"}
+              - {label: "Price note", name: priceNote, widget: string, required: false, hint: "Shown under the price"}
+              - {label: "Short description", name: desc, widget: string, required: false, hint: "One line shown in the listings"}
+              - {label: "Full description", name: details, widget: text, required: false, hint: "Shown on the property page. Leave a blank line between paragraphs."}
+              - {label: "Key facts", name: facts, widget: text, required: false, hint: "One per line, as Label: Value — for example Zoning: C-2"}
+              - {label: "Features", name: features, widget: text, required: false, hint: "One per line — for example Grade-level loading"}
+              - {label: "More info link", name: link, widget: string, required: false, hint: "Optional: virtual tour, MLS page or flyer (https://…)"}
+              - {label: "Photos", name: photos, widget: list, summary: "{{fields.image}}", hint: "Drag to reorder. The first photo is the cover.", field: {label: "Photo", name: image, widget: image}}

@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tatka Realty</title>
+<meta name="description" content="Tatka Realty — residential and commercial real estate across the Phoenix metro. Homes, land, office, medical, industrial and retail.">
+<meta property="og:title" content="Tatka Realty">
+<meta property="og:description" content="Residential and commercial real estate across the Phoenix metro.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23000'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-weight='700' font-size='34' fill='%23fff' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,300..800;1,75..125,300..800&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --paper:#ffffff; --ink:#000000; --mute:#5e5e5e; --line:#d6d6d6; --soft:#f2f2f0; --pin:#000000; --onpin:#ffffff;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ --paper:#000000; --ink:#ffffff; --mute:#a3a3a3; --line:#333333; --soft:#141414; --pin:#ffffff; --onpin:#000000; }
+}
+:root[data-theme="dark"]{ --paper:#000000; --ink:#ffffff; --mute:#a3a3a3; --line:#333333; --soft:#141414; --pin:#ffffff; --onpin:#000000; }
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:17px;line-height:1.55;font-variation-settings:"wdth" 100}
+:is(#cre,#res) img,:is(#cre,#res) svg{max-width:100%}
+:is(#cre,#res) a{color:inherit}
+:is(#cre,#res) :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+:is(#cre,#res) .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+:is(#cre,#res) /* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--ink)}
+:is(#cre,#res) .top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+:is(#cre,#res) .brand{font-weight:800;font-variation-settings:"wdth" 125;font-size:20px;letter-spacing:-.01em;text-decoration:none}
+:is(#cre,#res) nav.links{display:flex;gap:22px;font-size:15px}
+:is(#cre,#res) nav.links a{text-decoration:none}
+:is(#cre,#res) nav.links a:hover{text-decoration:underline;text-underline-offset:4px}
+:is(#cre,#res) .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);font:inherit;font-weight:600;font-size:15px;padding:10px 18px;border-radius:999px;cursor:pointer;text-decoration:none}
+:is(#cre,#res) .btn.ghost{background:transparent;color:var(--ink)}
+:is(#cre,#res) .btn:hover{opacity:.85}
+@media (max-width:760px){:is(#cre,#res) nav.links{display:none}}
+
+:is(#cre,#res) /* hero */
+.hero{padding:56px 0 40px;border-bottom:1px solid var(--line)}
+:is(#cre,#res) .hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:end}
+:is(#cre,#res) h1{font-variation-settings:"wdth" 75;font-weight:800;font-size:clamp(46px,7.4vw,96px);line-height:.9;letter-spacing:-.02em;margin:0 0 24px}
+:is(#cre,#res) .lede{font-size:19px;max-width:34ch;margin:0 0 28px;color:var(--ink)}
+:is(#cre,#res) .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+:is(#cre,#res) .map-box{position:relative;border:1.5px solid var(--ink);background:var(--paper)}
+:is(#cre,#res) .map-box svg{display:block;width:100%;height:auto}
+:is(#cre,#res) .map-legend{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-top:1px solid var(--ink);font-size:13px;color:var(--mute)}
+:is(#cre,#res) .pin{cursor:pointer}
+:is(#cre,#res) .pin circle{fill:var(--pin);stroke:var(--paper);stroke-width:2.5}
+:is(#cre,#res) .pin text{fill:var(--onpin);font-size:11px;font-weight:700;pointer-events:none}
+:is(#cre,#res) .pin.dim{opacity:.18}
+:is(#cre,#res) .pin.active circle{r:15}
+:is(#cre,#res) .map-card{position:absolute;left:14px;top:14px;max-width:260px;background:var(--paper);border:1.5px solid var(--ink);padding:12px 14px;font-size:14px;line-height:1.4;display:none}
+:is(#cre,#res) .map-card.show{display:block}
+:is(#cre,#res) .map-card b{display:block;font-size:15px;margin-bottom:2px}
+:is(#cre,#res) .map-card button{margin-top:8px;background:none;border:0;padding:0;font:inherit;font-weight:600;text-decoration:underline;cursor:pointer;color:var(--ink)}
+@media (max-width:900px){:is(#cre,#res) .hero-grid{grid-template-columns:1fr}}
+
+:is(#cre,#res) /* sections */
+section.block{padding:72px 0;border-bottom:1px solid var(--line)}
+:is(#cre,#res) h2{font-variation-settings:"wdth" 75;font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:.95;letter-spacing:-.015em;margin:0 0 12px}
+:is(#cre,#res) .sub{color:var(--mute);max-width:60ch;margin:0 0 32px}
+
+:is(#cre,#res) /* services */
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--ink)}
+:is(#cre,#res) .svc div{padding:24px 24px 8px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+:is(#cre,#res) .svc div:nth-child(3n+1){padding-left:0}
+:is(#cre,#res) .svc div:nth-child(3n){border-right:0}
+:is(#cre,#res) .svc div:nth-last-child(-n+3){border-bottom:0}
+:is(#cre,#res) .svc h3{font-size:22px;margin:0 0 8px;font-weight:700;font-variation-settings:"wdth" 110}
+:is(#cre,#res) .svc p{margin:0 0 16px;color:var(--mute);font-size:16px}
+@media (max-width:760px){:is(#cre,#res) .svc{grid-template-columns:1fr}:is(#cre,#res) .svc div,:is(#cre,#res) .svc div:nth-child(3n+1){padding:20px 0;border-right:0}}
+
+:is(#cre,#res) /* listings */
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px}
+:is(#cre,#res) .chip{border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:inherit;font-size:14px;font-weight:600;padding:7px 14px;border-radius:999px;cursor:pointer}
+:is(#cre,#res) .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+:is(#cre,#res) .filters input,:is(#cre,#res) .filters select{font:inherit;font-size:15px;padding:8px 12px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px}
+:is(#cre,#res) .filters input{flex:1;min-width:180px}
+:is(#cre,#res) .list{border-top:1.5px solid var(--ink)}
+:is(#cre,#res) .row{display:grid;grid-template-columns:44px minmax(0,3fr) minmax(0,2fr) minmax(0,1.3fr) auto;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+:is(#cre,#res) .row.hl{background:var(--soft)}
+:is(#cre,#res) .row .num{width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-size:13px;font-weight:700}
+:is(#cre,#res) .row h3{margin:0;font-size:18px;font-weight:700}
+:is(#cre,#res) .row .where{color:var(--mute);font-size:15px}
+:is(#cre,#res) .row .facts{font-size:15px}
+:is(#cre,#res) .row .price{font-weight:700;font-variation-settings:"wdth" 110}
+:is(#cre,#res) .row .price small{display:block;font-weight:400;color:var(--mute);font-size:13px}
+:is(#cre,#res) .row .act{display:flex;gap:8px}
+:is(#cre,#res) .row .act button{font-size:13px;padding:7px 12px}
+:is(#cre,#res) .empty{padding:32px 0;color:var(--mute)}
+:is(#cre,#res) .note{font-size:13px;color:var(--mute);margin-top:14px}
+@media (max-width:820px){:is(#cre,#res) .row{grid-template-columns:36px minmax(0,1fr);row-gap:6px}:is(#cre,#res) .row>*:not(.num){grid-column:2}:is(#cre,#res) .row .act{margin-top:6px}}
+
+:is(#cre,#res) /* tools */
+.tabs{display:flex;gap:0;border:1.5px solid var(--ink);border-radius:999px;width:max-content;max-width:100%;overflow-x:auto;margin-bottom:28px}
+:is(#cre,#res) .tabs button{font:inherit;font-size:15px;font-weight:600;border:0;background:transparent;color:var(--ink);padding:9px 18px;border-radius:999px;cursor:pointer;white-space:nowrap}
+:is(#cre,#res) .tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+:is(#cre,#res) .tool{display:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+:is(#cre,#res) .tool.on{display:grid}
+@media (max-width:820px){:is(#cre,#res) .tool.on{grid-template-columns:1fr}}
+:is(#cre,#res) .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;align-content:start}
+:is(#cre,#res) .fields label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+:is(#cre,#res) .fields input,:is(#cre,#res) .fields select{font:inherit;font-weight:400;font-size:17px;padding:10px 0;border:0;border-bottom:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:0;width:100%}
+:is(#cre,#res) .fields .hint{font-weight:400;color:var(--mute);font-size:12px}
+:is(#cre,#res) .out{border:1.5px solid var(--ink);padding:24px}
+:is(#cre,#res) .out .big{font-variation-settings:"wdth" 75;font-weight:800;font-size:clamp(44px,6vw,72px);line-height:1;letter-spacing:-.02em}
+:is(#cre,#res) .out .biglabel{color:var(--mute);font-size:14px;margin:6px 0 20px}
+:is(#cre,#res) .out dl{display:grid;grid-template-columns:1fr auto;margin:0;border-top:1px solid var(--line)}
+:is(#cre,#res) .out dt,:is(#cre,#res) .out dd{padding:9px 0;border-bottom:1px solid var(--line);margin:0;font-size:15px}
+:is(#cre,#res) .out dd{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+:is(#cre,#res) .sched{overflow-x:auto;margin-top:18px}
+:is(#cre,#res) .sched table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+:is(#cre,#res) .sched th,:is(#cre,#res) .sched td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+:is(#cre,#res) .sched th:first-child,:is(#cre,#res) .sched td:first-child{text-align:left}
+:is(#cre,#res) .sched th{font-weight:600;color:var(--mute)}
+
+:is(#cre,#res) /* contact */
+.contact-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:48px}
+@media (max-width:820px){:is(#cre,#res) .contact-grid{grid-template-columns:1fr}}
+:is(#cre,#res) .contact-grid address{font-style:normal;line-height:1.7}
+:is(#cre,#res) .form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+:is(#cre,#res) .form .full{grid-column:1/-1}
+:is(#cre,#res) .form label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+:is(#cre,#res) .form input,:is(#cre,#res) .form select,:is(#cre,#res) .form textarea{font:inherit;font-weight:400;font-size:17px;padding:10px 0;border:0;border-bottom:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:0;width:100%}
+:is(#cre,#res) .form textarea{min-height:110px;resize:vertical}
+:is(#cre,#res) .form .err{color:var(--ink);font-weight:600;font-size:13px;min-height:1em}
+:is(#cre,#res) .status{grid-column:1/-1;font-size:15px;padding:14px 16px;border:1.5px solid var(--ink);display:none}
+:is(#cre,#res) .status.show{display:block}
+@media (max-width:560px){:is(#cre,#res) .form,:is(#cre,#res) .fields{grid-template-columns:1fr}}
+
+:is(#cre,#res) footer{padding:36px 0 48px;font-size:13px;color:var(--mute)}
+:is(#cre,#res) footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+
+#home{min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:44px 44px;background-position:-1px -1px}
+#home .bar,#home .foot{background:var(--paper);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px 16px;padding:18px 24px}
+#home .bar{border-bottom:1.5px solid var(--ink);font-size:15px;color:var(--mute)}
+#home .foot{border-top:1.5px solid var(--ink);font-size:13px;color:var(--mute)}
+#home .center{display:flex;align-items:center;justify-content:center;padding:48px 24px}
+#home .panel{background:var(--paper);border:1.5px solid var(--ink);padding:36px 36px 32px;max-width:640px;width:100%}
+#home h1{margin:0;font-variation-settings:"wdth" 75;font-weight:800;font-size:clamp(56px,9vw,112px);line-height:.88;letter-spacing:-.025em}
+#home .tag{margin:16px 0 32px;font-size:19px;max-width:34ch}
+#home .choices{display:flex;flex-wrap:wrap;gap:12px}
+#home .choice{display:flex;flex-direction:column;gap:2px;min-width:200px;flex:1;padding:14px 18px;border:1.5px solid var(--ink);border-radius:14px;text-decoration:none;color:var(--ink);background:var(--paper)}
+#home .choice strong{font-size:17px;font-weight:700}
+#home .choice span{font-size:13px;color:var(--mute)}
+#home .choice:hover,#home .choice:focus-visible{background:var(--ink);color:var(--paper);outline:none}
+#home .choice:hover span,#home .choice:focus-visible span{color:var(--paper);opacity:.8}
+@media (max-width:560px){#home .panel{padding:28px 22px 24px}#home .choice{min-width:0;flex-basis:100%}}
+
+@media (max-width:760px){
+  :is(#cre,#res) .top .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:10px}
+  :is(#cre,#res) nav.links{display:flex;order:3;width:100%;overflow-x:auto;gap:18px;padding:6px 0 10px;white-space:nowrap;font-size:14px}
+  :is(#cre,#res) .top .btn{padding:8px 14px;font-size:14px}
+}
+
+/* ---------- Residential: Olga-inspired editorial layer ---------- */
+#res .dark{--paper:#000000;--ink:#ffffff;--mute:#b8b8b8;--line:rgba(255,255,255,.16);--soft:#161616;--pin:#ffffff;--onpin:#000000;
+  position:relative;background:var(--paper);color:var(--ink);isolation:isolate}
+#res .dark>canvas.ridges{position:absolute;inset:0;width:100%;height:100%;z-index:-1;display:block}
+#res header.top.dark{border-bottom:1px solid #2a2a2a}
+#res header.top.dark .btn{background:#fff;color:#000;border-color:#fff}
+#res h1,#res h2{font-weight:400;font-variation-settings:"wdth" 100;letter-spacing:-.02em;text-wrap:balance}
+#res h1 em,#res h2 em{display:block;font-style:italic;font-weight:300;letter-spacing:-.01em}
+#res h2 em{color:var(--mute)}
+#res h2{font-size:clamp(32px,4vw,50px);line-height:1.05;margin:0 0 16px}
+#res .hero-olga{padding:clamp(120px,18vw,220px) 0 clamp(72px,9vw,120px)}
+#res .hero-olga h1{font-size:clamp(48px,7.5vw,104px);line-height:.98;margin:0 0 24px;max-width:13ch}
+#res .hero-olga .lede{color:var(--mute);font-size:19px;max-width:44ch;margin:0 0 32px}
+#res .hero-olga .actions{display:flex;flex-wrap:wrap;gap:12px}
+#res .hero-olga .btn{background:#fff;color:#000;border-color:#fff}
+#res .hero-olga .btn.ghost{background:transparent;color:#fff}
+#res .meet-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:stretch}
+#res .meet-copy p{font-size:19px;line-height:1.65;max-width:54ch;margin:8px 0 24px}
+#res .more{font-weight:600;text-underline-offset:5px;text-decoration-thickness:1px}
+#res .cred{min-height:360px;display:flex}
+#res .cred-in{padding:28px;display:flex;flex-direction:column;gap:4px;width:100%}
+#res .cred-in b{font-weight:400;font-size:38px;line-height:1;letter-spacing:-.02em}
+#res .cred-in span{color:var(--mute);font-size:15px}
+#res .cred dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:20px 0 0;font-size:14px}
+#res .cred dt{color:var(--mute)}
+#res .cred dd{margin:0}
+#res .approach-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:36px}
+#res .approach-row article{border-top:1.5px solid var(--ink);padding-top:20px;display:flex;flex-direction:column;gap:12px}
+#res .approach-row h3{font-size:26px;font-weight:400;margin:0;letter-spacing:-.01em}
+#res .approach-row p{margin:0;color:var(--mute);font-size:16px;flex:1}
+#res .also{margin:36px 0 0;color:var(--mute);font-size:15px}
+#res .explore{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:end;margin-bottom:36px}
+#res .explore .sub{margin-bottom:0}
+#res .trust-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:28px}
+#res .trust-row>div{border-top:1.5px solid var(--ink);padding-top:16px}
+#res .trust-row h3{font-size:19px;margin:0 0 6px;font-weight:600}
+#res .trust-row p{margin:0;color:var(--mute);font-size:16px}
+#res .cta{padding:112px 0 120px;text-align:center}
+#res .cta-in{display:flex;flex-direction:column;align-items:center;gap:28px}
+#res .cta h2{margin:0}
+#res .cta .btn{background:#fff;color:#000;border-color:#fff}
+#res footer.dark{color:var(--mute);padding-block:40px 52px}
+#res footer.dark a{color:var(--ink)}
+@media (max-width:900px){#res .explore{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:820px){#res .meet-grid,#res .approach-row,#res .trust-row{grid-template-columns:minmax(0,1fr)}#res .cred{min-height:280px}}
+
+/* Residential: black ground, white type throughout */
+#res{--paper:#000000;--ink:#ffffff;--mute:#b8b8b8;--line:rgba(255,255,255,.16);--soft:#161616;--pin:#ffffff;--onpin:#000000;
+  background:var(--paper);color:var(--ink);color-scheme:dark}
+#res .block{border-color:#262626}
+#res select option{color:#fff;background:#000}
+#res .btn:not(.ghost){background:#fff;color:#000;border-color:#fff}
+#res .chip[aria-pressed="true"]{background:#fff;color:#000}
+#res .row .num{background:#fff;color:#000}
+#res .tabs button[aria-selected="true"]{background:#fff;color:#000}
+#res .cred,#res .cta{--paper:#0b0b0b}
+
+/* ---------- Listing photos + manager ---------- */
+:is(#cre,#res) .row{grid-template-columns:44px 112px minmax(0,3fr) minmax(0,2fr) minmax(0,1.3fr) auto}
+:is(#cre,#res) .thumb{position:relative;width:112px;aspect-ratio:4/3;border:1px solid var(--line);background:var(--soft) center/cover no-repeat;border-radius:4px;padding:0;cursor:zoom-in;font:inherit;font-size:11px;color:var(--mute)}
+:is(#cre,#res) .thumb.none{cursor:default}
+:is(#cre,#res) .thumb-n{position:absolute;right:5px;bottom:5px;background:rgba(0,0,0,.72);color:#fff;font-size:11px;font-weight:700;padding:1px 6px;border-radius:999px}
+:is(#cre,#res) .map-card .card-photo{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;margin:0 0 10px;cursor:zoom-in}
+@media (max-width:820px){:is(#cre,#res) .row{grid-template-columns:36px minmax(0,1fr)}:is(#cre,#res) .thumb{width:100%;max-width:340px;aspect-ratio:16/10}}
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.94);color:#fff;display:grid;grid-template-rows:auto 1fr auto;
+  padding:calc(env(safe-area-inset-top,0px) + 12px) 16px calc(env(safe-area-inset-bottom,0px) + 16px);font-family:"Archivo",system-ui,sans-serif}
+.lightbox
+/* ---------- Property detail page ---------- */
+:is(#cre,#res) .title-link{font:inherit;color:inherit;background:none;border:0;padding:0;text-align:left;cursor:pointer;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:text-decoration-color .15s}
+:is(#cre,#res) .title-link:hover{text-decoration-color:currentColor}
+:is(#cre,#res) .thumb.none{cursor:pointer}
+.pd-open,.pd-open body{overflow:hidden}
+:is(#cre,#res) .pd{position:fixed;inset:0;z-index:90;overflow-y:auto;background:var(--paper);color:var(--ink);padding-bottom:env(safe-area-inset-bottom,0px);overscroll-behavior:contain}
+:is(#cre,#res) .pd-bar{position:sticky;top:0;z-index:2;background:var(--paper);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+:is(#cre,#res) .pd-bar-in{display:flex;align-items:center;gap:16px;height:56px}
+:is(#cre,#res) .pd-back{font:inherit;font-weight:600;font-size:15px;color:var(--ink);background:none;border:1.5px solid var(--ink);border-radius:999px;padding:7px 14px;cursor:pointer;flex:none}
+:is(#cre,#res) .pd-bar-title{color:var(--mute);font-size:15px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+:is(#cre,#res) .pd-body{padding-block:24px 72px;display:flex;flex-direction:column;gap:40px}
+:is(#cre,#res) .pd-gallery{display:flex;flex-direction:column;gap:10px}
+:is(#cre,#res) .pd-main{position:relative;border-radius:6px;overflow:hidden;background:var(--soft)}
+:is(#cre,#res) .pd-main img{display:block;width:100%;aspect-ratio:16/9;max-height:72vh;object-fit:cover;cursor:zoom-in}
+:is(#cre,#res) .pd-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;font-size:26px;line-height:1;cursor:pointer}
+:is(#cre,#res) .pd-prev{left:12px}:is(#cre,#res) .pd-next{right:12px}
+:is(#cre,#res) .pd-count{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,.65);color:#fff;font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px;font-variant-numeric:tabular-nums}
+:is(#cre,#res) .pd-full{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.65);color:#fff;border:0;border-radius:999px;font:inherit;font-size:13px;font-weight:600;padding:5px 12px;cursor:pointer}
+:is(#cre,#res) .pd-strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+:is(#cre,#res) .pd-strip button{flex:none;width:112px;aspect-ratio:4/3;border-radius:4px;border:2px solid transparent;background:var(--soft) center/cover no-repeat;cursor:pointer;opacity:.65;padding:0}
+:is(#cre,#res) .pd-strip button[aria-current="true"]{opacity:1;border-color:var(--ink)}
+:is(#cre,#res) .pd-nophoto{aspect-ratio:21/9;border:1px dashed var(--line);border-radius:6px;display:grid;place-items:center;color:var(--mute);font-size:15px}
+:is(#cre,#res) .pd-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:48px;align-items:start}
+:is(#cre,#res) .pd-copy h1{font-size:clamp(34px,4.6vw,56px);line-height:1.02;margin:0;letter-spacing:-.02em;text-wrap:balance}
+:is(#cre,#res) .pd-where{color:var(--mute);font-size:18px;margin:8px 0 24px}
+:is(#cre,#res) .pd-desc p{font-size:18px;line-height:1.65;max-width:62ch;margin:0 0 14px}
+:is(#cre,#res) .pd-copy h2{font-size:22px;line-height:1.2;margin:32px 0 12px;font-weight:600;letter-spacing:0}
+:is(#cre,#res) .pd-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin:0;border-top:1px solid var(--line)}
+:is(#cre,#res) .pd-facts dt,:is(#cre,#res) .pd-facts dd{padding:10px 0;border-bottom:1px solid var(--line);margin:0;font-size:15px}
+:is(#cre,#res) .pd-facts dt{color:var(--mute)}
+:is(#cre,#res) .pd-facts dd{font-weight:600;text-align:right}
+:is(#cre,#res) .pd-facts{grid-template-columns:repeat(2,minmax(0,1fr) auto)}
+:is(#cre,#res) .pd-facts{column-gap:0}
+:is(#cre,#res) .pd-facts dd:nth-of-type(odd){padding-right:32px}
+@media (max-width:860px){:is(#cre,#res) .pd-facts dd:nth-of-type(odd){padding-right:0}}
+:is(#cre,#res) .pd-feats{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 32px}
+:is(#cre,#res) .pd-feats li{padding-left:18px;position:relative;font-size:16px}
+:is(#cre,#res) .pd-feats li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--ink)}
+:is(#cre,#res) .pd-card{position:sticky;top:80px;border:1.5px solid var(--ink);border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:12px}
+:is(#cre,#res) .pd-price{font-size:36px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.1}
+:is(#cre,#res) .pd-sub{color:var(--mute);font-size:15px;margin-top:-4px}
+:is(#cre,#res) .pd-card .btn{width:100%}
+:is(#cre,#res) .pd-link{font-weight:600;text-underline-offset:4px;font-size:15px}
+:is(#cre,#res) .pd-broker{color:var(--mute);font-size:13px;margin:6px 0 0}
+@media (max-width:860px){:is(#cre,#res) .pd-grid{grid-template-columns:minmax(0,1fr)}:is(#cre,#res) .pd-card{position:static}:is(#cre,#res) .pd-facts{grid-template-columns:minmax(0,1fr) auto}}
+@media (max-width:560px){:is(#cre,#res) .pd-feats{grid-template-columns:minmax(0,1fr)}:is(#cre,#res) .pd-strip button{width:84px}:is(#cre,#res) .pd-full{display:none}}
+[hidden]{display:none!important}
+.lb-open,.lb-open body{overflow:hidden}
+.lb-top{display:flex;justify-content:space-between;align-items:center;gap:16px;max-width:1180px;width:100%;margin:0 auto}
+.lb-title{font-size:16px;font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lightbox button{font:inherit;color:#fff;background:transparent;border:1.5px solid #fff;border-radius:999px;padding:8px 16px;cursor:pointer}
+.lb-stage{display:flex;align-items:center;justify-content:center;gap:12px;min-height:0;padding:16px 0}
+.lb-stage img{max-width:min(1180px,100%);max-height:100%;object-fit:contain;min-width:0}
+.lightbox .lb-nav{font-size:28px;line-height:1;padding:6px 16px;flex:none}
+.lb-count{text-align:center;font-size:14px;color:#bbb}
+@media (max-width:560px){.lb-stage{position:relative}.lightbox .lb-nav{position:absolute;bottom:24px;background:rgba(0,0,0,.6)}.lb-prev{left:0}.lb-next{right:0}}
+:is(#cre,#res) .mgr{border:1.5px solid var(--ink);border-radius:6px;margin:0 0 28px}
+:is(#cre,#res) .mgr-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 20px;padding:14px 18px}
+:is(#cre,#res) .mgr-bar p{margin:0;color:var(--mute);font-size:15px;min-width:0}
+:is(#cre,#res) .mgr-panel{border-top:1px solid var(--line);padding:20px 18px 22px;display:flex;flex-direction:column;gap:20px}
+:is(#cre,#res) .mgr-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+:is(#cre,#res) .mgr-head h3{margin:0;font-size:22px;font-weight:600}
+:is(#cre,#res) .mgr-list{display:flex;flex-direction:column}
+:is(#cre,#res) .mgr-row{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+:is(#cre,#res) .mgr-th{width:72px;aspect-ratio:4/3;border-radius:4px;background:var(--soft) center/cover no-repeat;border:1px solid var(--line);font-size:11px;color:var(--mute);display:grid;place-items:center}
+:is(#cre,#res) .mgr-info{display:flex;flex-direction:column;min-width:0}
+:is(#cre,#res) .mgr-info b{font-size:16px}
+:is(#cre,#res) .mgr-info span{color:var(--mute);font-size:14px}
+:is(#cre,#res) .mgr-act{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+:is(#cre,#res) .mgr-act .btn,:is(#cre,#res) .mgr-actions .btn,:is(#cre,#res) .mgr-pick{font-size:14px;padding:8px 14px}
+:is(#cre,#res) .mgr-form h4{margin:0;font-size:18px;font-weight:600}
+:is(#cre,#res) .mgr-form{border-top:1px solid var(--line);padding-top:20px}
+:is(#cre,#res) .mgr-err{margin:0;font-weight:600;min-height:0}
+:is(#cre,#res) .mgr-err:empty{display:none}
+:is(#cre,#res) .mgr-photos{display:flex;flex-direction:column;gap:10px}
+:is(#cre,#res) .mgr-ptitle{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;font-size:14px}
+:is(#cre,#res) .mgr-prow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+:is(#cre,#res) .mgr-prow input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+:is(#cre,#res) .mgr-pick{cursor:pointer;display:inline-flex}
+:is(#cre,#res) .mgr-prow input[type=file]:focus-visible+.hint,:is(#cre,#res) .mgr-pick:focus-within{outline:2px solid var(--ink);outline-offset:3px}
+:is(#cre,#res) .mgr-previews{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+:is(#cre,#res) .mgr-previews>p{margin:0}
+:is(#cre,#res) .mgr-ph{margin:0;position:relative;display:flex;flex-direction:column;gap:6px}
+:is(#cre,#res) .mgr-ph img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;border:1px solid var(--line)}
+:is(#cre,#res) .mgr-cover{position:absolute;left:6px;top:6px;background:rgba(0,0,0,.75);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
+:is(#cre,#res) .mgr-ph-act{display:flex;gap:10px;flex-wrap:wrap}
+:is(#cre,#res) .mgr-ph-act button{font:inherit;font-size:13px;background:none;border:0;padding:0;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+:is(#cre,#res) .mgr-actions{display:flex;gap:10px;flex-wrap:wrap}
+:is(#cre,#res) .mgr-empty{margin:0}
+:is(#cre,#res) .mgr .hint{font-weight:400;color:var(--mute);font-size:12px}
+@media (max-width:560px){:is(#cre,#res) .mgr-row{grid-template-columns:60px minmax(0,1fr)}:is(#cre,#res) .mgr-act{grid-column:1/-1;justify-content:flex-start}}
+[hidden]{display:none!important}
+:is(#cre,#res) .fields>*,:is(#cre,#res) .tool>*,:is(#cre,#res) .fields input,:is(#cre,#res) .fields select{min-width:0}
+@media (max-width:820px){:is(#cre,#res) .tool.on{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){:is(#cre,#res) .fields{grid-template-columns:minmax(0,1fr)}}
+:is(#cre,#res) .form select option{color:#000}
+</style>
+</head>
+<body>
+<div id="home">
+  <div class="bar"><span>Tatka Realty LLC</span><span>Phoenix, Arizona</span></div>
+  <div class="center">
+    <div class="panel">
+      <h1>Tatka Realty</h1>
+      <p class="tag">Residential and commercial real estate across the Valley.</p>
+      <nav class="choices" aria-label="Choose a service">
+        <a class="choice" href="#residential"><strong>Residential</strong><span>Buy, sell or rent a home</span></a>
+        <a class="choice" href="#commercial"><strong>Commercial</strong><span>Office, industrial, retail, land</span></a>
+      </nav>
+    </div>
+  </div>
+  <div class="foot"><span>14043 N 41st Pl, Phoenix, AZ 85032</span><span>Arizona broker license BR662519000</span></div>
+</div>
+<div id="res" hidden>
+<header class="top dark">
+  <div class="wrap">
+    <a class="brand" href="#residential">Tatka Residential</a>
+    <nav class="links" aria-label="Sections">
+      <a href="#r-about">About</a>
+      <a href="#r-services">Buying &amp; selling</a>
+      <a href="#r-listings">Properties</a>
+      <a href="#r-tools">Calculators</a>
+      <a href="#r-contact">Contact</a>
+      <a href="#commercial">Commercial</a>
+      <a href="#home">Tatka Realty home</a>
+    </nav>
+    <a class="btn" href="#r-contact">Talk to Austin</a>
+  </div>
+</header>
+
+<main id="residential">
+  <section class="hero-olga dark">
+    <canvas class="ridges" aria-hidden="true"></canvas>
+    <div class="wrap hero-in">
+      <h1>Arizona living,<em>thoughtfully found.</em></h1>
+      <p class="lede">Personal representation for buyers, sellers and families relocating across the Valley — from Arcadia and Paradise Valley to the East and West Valley.</p>
+      <div class="actions">
+        <a class="btn" href="#r-listings">Find a home ↗</a>
+        <a class="btn ghost" href="#r-contact">Sell your home ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="r-about">
+    <div class="wrap meet-grid">
+      <div class="meet-copy">
+        <h2>Phoenix expertise.<em>A personal point of view.</em></h2>
+        <p>Austin Tatka runs Tatka Realty as an owner-broker, so the person you meet is the person who negotiates your offer, walks the inspection and sees you through closing. No hand-offs, no call centers — one broker who knows the Valley and picks up the phone.</p>
+        <a class="more" href="#r-contact">Meet Austin ↗</a>
+      </div>
+      <aside class="dark cred">
+        <canvas class="ridges" aria-hidden="true"></canvas>
+        <div class="cred-in">
+          <b>Austin Tatka</b>
+          <span>Broker and owner, Tatka Realty LLC</span>
+          <dl>
+            <dt>License</dt><dd>Arizona BR662519000</dd>
+            <dt>Office</dt><dd>14043 N 41st Pl, Phoenix</dd>
+            <dt>Serving</dt><dd>The greater Phoenix metro</dd>
+          </dl>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block approach" id="r-services">
+    <div class="wrap">
+      <h2>A thoughtful approach.<em>Whatever your next move is.</em></h2>
+      <div class="approach-row">
+        <article>
+          <h3>Buying</h3>
+          <p>Finding the right neighborhood, touring with a clear eye, writing an offer that wins and negotiating inspections through close.</p>
+          <a class="more" href="#r-listings">Start your search ↗</a>
+        </article>
+        <article>
+          <h3>Selling</h3>
+          <p>Pricing from real comparable sales, preparing and presenting the home well, then managing offers, appraisal and escrow.</p>
+          <a class="more" href="#r-tools" data-tab="net">Estimate your net ↗</a>
+        </article>
+        <article>
+          <h3>Relocating</h3>
+          <p>New to Arizona? Area tours, school and commute questions, and a buying process that works even from out of state.</p>
+          <a class="more" href="#r-contact">Plan your move ↗</a>
+        </article>
+      </div>
+      <p class="also">Also handled: investment homes and rentals, new construction with builders, and residential lots and land.</p>
+    </div>
+  </section>
+
+  <section class="block" id="r-listings">
+    <div class="wrap">
+      <div class="explore">
+        <div>
+          <h2>Featured properties.<em>Across the Valley.</em></h2>
+          <p class="sub">Filter by home type or sale versus rent, or search by city. Select a pin or a listing to see it on the map.</p>
+        </div>
+        <div class="map-box">
+        <svg id="rmap" viewBox="0 0 700 440" role="img" aria-label="Map of the Phoenix metro showing available homes">
+          <g id="rgrid" stroke="var(--line)" stroke-width="1"></g>
+          <g id="rroads" stroke="var(--ink)" fill="none"></g>
+          <g id="rlabels" font-size="11" fill="var(--mute)" font-family="Archivo, sans-serif"></g>
+          <g id="rpins" font-family="Archivo, sans-serif"></g>
+        </svg>
+        <div class="map-card" id="rmapCard" aria-live="polite"></div>
+        <div class="map-legend"><span>Each square is one mile of the Valley's section-line grid</span><span>Select a pin</span></div>
+      </div>
+      </div>
+      <div class="filters" role="group" aria-label="Filter homes">
+        <button class="chip" data-type="all" aria-pressed="true">All</button>
+        <button class="chip" data-type="Single-family" aria-pressed="false">Single-family</button>
+        <button class="chip" data-type="Condo / townhome" aria-pressed="false">Condo / townhome</button>
+        <button class="chip" data-type="New construction" aria-pressed="false">New construction</button>
+        <button class="chip" data-type="Lot" aria-pressed="false">Lots</button>
+        <select id="rdeal" aria-label="Sale or rent">
+          <option value="all">For sale or rent</option>
+          <option value="Sale">For sale</option>
+          <option value="Rent">For rent</option>
+        </select>
+        <input id="rq" type="search" placeholder="Search city or keyword" aria-label="Search homes">
+      </div>
+      <div class="list" id="rlist"></div>
+      <p class="note" hidden></p>
+    </div>
+  </section>
+
+  <section class="block" id="r-tools">
+    <div class="wrap">
+      <h2>Run the numbers.<em>Before you make a move.</em></h2>
+      <p class="sub">Quick estimates for the questions buyers and sellers ask first. Figures are estimates, not a loan approval or appraisal.</p>
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-tool="mortgage">Monthly payment</button>
+        <button role="tab" aria-selected="false" data-tool="afford">What can I afford</button>
+        <button role="tab" aria-selected="false" data-tool="net">Seller net sheet</button>
+      </div>
+
+      <div class="tool on" id="rtool-mortgage" role="tabpanel">
+        <div class="fields">
+          <label>Home price $<input type="number" id="m_price" value="525000" step="5000" min="0"></label>
+          <label>Down payment %<input type="number" id="m_down" value="10" step="0.5" min="0" max="100"></label>
+          <label>Interest rate %<input type="number" id="m_rate" value="6.5" step="0.05" min="0"></label>
+          <label>Loan term (years)<input type="number" id="m_term" value="30" min="1" max="40"></label>
+          <label>Property tax $/yr<input type="number" id="m_tax" value="2400" step="50" min="0"></label>
+          <label>Home insurance $/yr<input type="number" id="m_ins" value="1800" step="50" min="0"></label>
+          <label>HOA $/mo<input type="number" id="m_hoa" value="85" step="5" min="0"></label>
+          <label>Mortgage insurance %/yr<input type="number" id="m_pmi" value="0.5" step="0.05" min="0"><span class="hint">Usually applies under 20% down</span></label>
+        </div>
+        <div class="out" aria-live="polite">
+          <div class="big" id="m_month">—</div>
+          <div class="biglabel">Estimated monthly payment</div>
+          <dl>
+            <dt>Loan amount</dt><dd id="m_loan">—</dd>
+            <dt>Principal and interest</dt><dd id="m_pi">—</dd>
+            <dt>Property tax</dt><dd id="m_taxm">—</dd>
+            <dt>Home insurance</dt><dd id="m_insm">—</dd>
+            <dt>Mortgage insurance</dt><dd id="m_pmim">—</dd>
+            <dt>HOA</dt><dd id="m_hoam">—</dd>
+            <dt>Cash for down payment</dt><dd id="m_cash">—</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="tool" id="rtool-afford" role="tabpanel">
+        <div class="fields">
+          <label>Household income $/yr<input type="number" id="a_inc" value="140000" step="1000" min="0"></label>
+          <label>Monthly debts $<input type="number" id="a_debt" value="650" step="25" min="0"><span class="hint">Car, student loans, cards</span></label>
+          <label>Down payment $<input type="number" id="a_down" value="60000" step="1000" min="0"></label>
+          <label>Interest rate %<input type="number" id="a_rate" value="6.5" step="0.05" min="0"></label>
+          <label>Loan term (years)<input type="number" id="a_term" value="30" min="1" max="40"></label>
+          <label>Max debt-to-income %<input type="number" id="a_dti" value="36" step="1" min="1" max="60"></label>
+          <label>Tax and insurance %/yr<input type="number" id="a_ti" value="0.8" step="0.05" min="0"><span class="hint">As a share of home price</span></label>
+        </div>
+        <div class="out" aria-live="polite">
+          <div class="big" id="a_max">—</div>
+          <div class="biglabel">Estimated maximum home price</div>
+          <dl>
+            <dt>Max monthly housing payment</dt><dd id="a_pay">—</dd>
+            <dt>Loan amount</dt><dd id="a_loan">—</dd>
+            <dt>Principal and interest</dt><dd id="a_pi">—</dd>
+            <dt>Tax and insurance per month</dt><dd id="a_tim">—</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="tool" id="rtool-net" role="tabpanel">
+        <div class="fields">
+          <label>Sale price $<input type="number" id="s_price" value="610000" step="5000" min="0"></label>
+          <label>Mortgage payoff $<input type="number" id="s_loan" value="320000" step="1000" min="0"></label>
+          <label>Commission %<input type="number" id="s_comm" value="5" step="0.25" min="0"><span class="hint">Negotiable; enter your agreed total</span></label>
+          <label>Title and closing %<input type="number" id="s_close" value="1" step="0.1" min="0"></label>
+          <label>Buyer concessions $<input type="number" id="s_conc" value="5000" step="500" min="0"></label>
+          <label>Repairs and prep $<input type="number" id="s_rep" value="4000" step="500" min="0"></label>
+        </div>
+        <div class="out" aria-live="polite">
+          <div class="big" id="s_net">—</div>
+          <div class="biglabel">Estimated net proceeds at closing</div>
+          <dl>
+            <dt>Commission</dt><dd id="s_commv">—</dd>
+            <dt>Title and closing costs</dt><dd id="s_closev">—</dd>
+            <dt>Concessions and repairs</dt><dd id="s_other">—</dd>
+            <dt>Mortgage payoff</dt><dd id="s_loanv">—</dd>
+            <dt>Total costs of sale</dt><dd id="s_total">—</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block trust">
+    <div class="wrap">
+      <h2>Trusted in the Valley.</h2>
+      <div class="trust-row">
+        <div><h3>Licensed Arizona broker</h3><p>Tatka Realty LLC is a licensed Arizona brokerage, license BR662519000.</p></div>
+        <div><h3>One broker, start to finish</h3><p>Austin handles every showing, negotiation and closing personally.</p></div>
+        <div><h3>Residential and commercial</h3><p>The same broker can help when your home search meets land or investment property.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark cta">
+    <canvas class="ridges" aria-hidden="true"></canvas>
+    <div class="wrap cta-in">
+      <h2>Your next chapter starts here.<em>Tell Austin what you're looking for.</em></h2>
+      <a class="btn" href="#r-contact">Begin a conversation ↗</a>
+    </div>
+  </section>
+
+  <section class="block" id="r-contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Begin a conversation.<em>Austin replies personally.</em></h2>
+        <p class="sub">Buying, selling or just starting to look — send a note and Austin will follow up directly.</p>
+        <address>
+          <strong>Tatka Realty LLC</strong><br>
+          14043 N 41st Pl<br>
+          Phoenix, AZ 85032<br>
+          Arizona broker license BR662519000
+        </address>
+      </div>
+      <form class="form" id="rlead" name="residential-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="residential-inquiry">
+        <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label>Name<input name="name" autocomplete="name" required><span class="err" data-for="name"></span></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required><span class="err" data-for="email"></span></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+        <label>I'm looking to
+          <select name="interest">
+            <option>Buy a home</option>
+            <option>Sell my home</option>
+            <option>Buy and sell</option>
+            <option>Rent a home</option>
+            <option>Buy an investment property</option>
+            <option>Buy a lot or land</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label>Timing
+          <select name="timing">
+            <option>As soon as possible</option>
+            <option>1–3 months</option>
+            <option>3–6 months</option>
+            <option>Just exploring</option>
+          </select>
+        </label>
+        <label>Home of interest<input name="property" id="rpropField" placeholder="Optional"></label>
+        <label class="full">Details<textarea name="message" placeholder="Budget, beds and baths, area, must-haves"></textarea></label>
+        <div class="full"><button class="btn" type="submit" id="rsendBtn">Send inquiry</button></div>
+        <div class="status" id="rstatus" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="dark">
+  <div class="wrap">
+    <span>© <span id="ryr"></span> Tatka Realty LLC. Arizona broker license BR662519000. Commercial property? <a href="#commercial">Tatka Commercial</a>.</span>
+    <span>Information deemed reliable but not guaranteed.</span>
+  </div>
+</footer>
+
+</div>
+<div id="cre" hidden>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#commercial">Tatka Commercial</a>
+    <nav class="links" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#listings">Listings</a>
+      <a href="#tools">Calculators</a>
+      <a href="#contact">Contact</a>
+      <a href="#residential">Residential</a>
+      <a href="#home">Tatka Realty home</a>
+    </nav>
+    <a class="btn" href="#contact">Talk to Austin</a>
+  </div>
+</header>
+
+<main id="commercial">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Commercial real estate across the Phoenix grid.</h1>
+        <p class="lede">Tatka Realty represents owners, investors, tenants and landowners across the Valley — office, medical, industrial, retail and land, bought, sold and leased.</p>
+        <div class="actions">
+          <a class="btn" href="#listings">Browse listings</a>
+          <a class="btn ghost" href="#tools">Run the numbers</a>
+        </div>
+      </div>
+      <div class="map-box">
+        <svg id="map" viewBox="0 0 700 440" role="img" aria-label="Map of the Phoenix metro showing available properties">
+          <g id="grid" stroke="var(--line)" stroke-width="1"></g>
+          <g id="roads" stroke="var(--ink)" fill="none"></g>
+          <g id="labels" font-size="11" fill="var(--mute)" font-family="Archivo, sans-serif"></g>
+          <g id="pins" font-family="Archivo, sans-serif"></g>
+        </svg>
+        <div class="map-card" id="mapCard" aria-live="polite"></div>
+        <div class="map-legend"><span>Each square is one mile of the Valley's section-line grid</span><span>Select a pin</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="services">
+    <div class="wrap">
+      <h2>What we handle</h2>
+      <p class="sub">Full-service brokerage. Whatever the property type, one broker runs your deal start to finish.</p>
+      <div class="svc">
+        <div>
+          <h3>Office and medical</h3>
+          <p>Leasing and sales of professional office, MOB, dental and outpatient space, including buildout and parking needs.</p>
+        </div>
+        <div>
+          <h3>Industrial</h3>
+          <p>Warehouse, flex, manufacturing and industrial condos — clear heights, loading and power matched to how you operate.</p>
+        </div>
+        <div>
+          <h3>Retail</h3>
+          <p>Storefronts, pad sites and shopping center space, from local operators to national tenants.</p>
+        </div>
+        <div>
+          <h3>Land</h3>
+          <p>Infill and edge-of-growth parcels across the Valley, with site analysis, zoning context and buyer outreach.</p>
+        </div>
+        <div>
+          <h3>Investment sales</h3>
+          <p>Underwriting, pricing and marketing income properties, and helping buyers find and evaluate them.</p>
+        </div>
+        <div>
+          <h3>Tenant and buyer representation</h3>
+          <p>Finding, comparing and negotiating space or property on your side of the table, through LOI, contract and close.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="listings">
+    <div class="wrap">
+      <h2>Available now</h2>
+      <p class="sub">Filter by property type or deal, or search by city. Selecting a listing highlights it on the map.</p>
+      <div class="filters" role="group" aria-label="Filter listings">
+        <button class="chip" data-type="all" aria-pressed="true">All</button>
+        <button class="chip" data-type="Office" aria-pressed="false">Office</button>
+        <button class="chip" data-type="Medical" aria-pressed="false">Medical</button>
+        <button class="chip" data-type="Industrial" aria-pressed="false">Industrial</button>
+        <button class="chip" data-type="Retail" aria-pressed="false">Retail</button>
+        <button class="chip" data-type="Land" aria-pressed="false">Land</button>
+        <select id="deal" aria-label="Deal type">
+          <option value="all">For sale or lease</option>
+          <option value="Sale">For sale</option>
+          <option value="Lease">For lease</option>
+        </select>
+        <input id="q" type="search" placeholder="Search city or keyword" aria-label="Search listings">
+      </div>
+      <div class="list" id="list"></div>
+      <p class="note" hidden></p>
+    </div>
+  </section>
+
+  <section class="block" id="tools">
+    <div class="wrap">
+      <h2>Run the numbers</h2>
+      <p class="sub">Quick estimates for the questions clients ask first. Figures are estimates, not a commitment or appraisal.</p>
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-tool="lease">Lease cost</button>
+        <button role="tab" aria-selected="false" data-tool="invest">Investment return</button>
+        <button role="tab" aria-selected="false" data-tool="land">Land pricing</button>
+      </div>
+
+      <div class="tool on" id="tool-lease" role="tabpanel">
+        <div class="fields">
+          <label>Rentable SF<input type="number" id="l_sf" value="3200" min="0"></label>
+          <label>Base rent $/SF/yr<input type="number" id="l_rate" value="28" step="0.25" min="0"></label>
+          <label>NNN / opex $/SF/yr<input type="number" id="l_nnn" value="9.5" step="0.25" min="0"></label>
+          <label>Term (years)<input type="number" id="l_term" value="7" min="1" max="20"></label>
+          <label>Annual escalation %<input type="number" id="l_esc" value="3" step="0.25" min="0"></label>
+          <label>Free rent (months)<input type="number" id="l_free" value="3" min="0"></label>
+          <label>TI allowance $/SF<input type="number" id="l_ti" value="40" min="0"><span class="hint">Landlord contribution to buildout</span></label>
+          <label>Buildout cost $/SF<input type="number" id="l_build" value="85" min="0"><span class="hint">Medical and restaurant buildouts run higher</span></label>
+        </div>
+        <div class="out" aria-live="polite">
+          <div class="big" id="l_month">—</div>
+          <div class="biglabel">Monthly rent in year one, base plus NNN</div>
+          <dl>
+            <dt>Total base rent over term</dt><dd id="l_base">—</dd>
+            <dt>Total NNN over term</dt><dd id="l_opex">—</dd>
+            <dt>Tenant out-of-pocket buildout</dt><dd id="l_oop">—</dd>
+            <dt>Total cost of occupancy</dt><dd id="l_total">—</dd>
+            <dt>Effective cost $/SF/yr</dt><dd id="l_eff">—</dd>
+          </dl>
+          <div class="sched"><table><thead><tr><th>Year</th><th>Base $/SF</th><th>Annual base</th><th>Annual NNN</th></tr></thead><tbody id="l_sched"></tbody></table></div>
+        </div>
+      </div>
+
+      <div class="tool" id="tool-invest" role="tabpanel">
+        <div class="fields">
+          <label>Purchase price $<input type="number" id="i_price" value="4200000" step="10000" min="0"></label>
+          <label>Net operating income $/yr<input type="number" id="i_noi" value="273000" step="1000"></label>
+          <label>Loan-to-value %<input type="number" id="i_ltv" value="65" min="0" max="95"></label>
+          <label>Interest rate %<input type="number" id="i_rate" value="6.75" step="0.05" min="0"></label>
+          <label>Amortization (years)<input type="number" id="i_am" value="25" min="1" max="40"></label>
+          <label>Closing costs %<input type="number" id="i_cc" value="2" step="0.25" min="0"></label>
+        </div>
+        <div class="out" aria-live="polite">
+          <div class="big" id="i_cap">—</div>
+          <div class="biglabel">Cap rate</div>
+          <dl>
+            <dt>Loan amount</dt><dd id="i_loan">—</dd>
+            <dt>Cash required at close</dt><dd id="i_cash">—</dd>
+            <dt>Annual debt service</dt><dd id="i_ds">—</dd>
+            <dt>Cash flow after debt</dt><dd id="i_cf">—</dd>
+            <dt>Cash-on-cash return</dt><dd id="i_coc">—</dd>
+            <dt>Debt service coverage (DSCR)</dt><dd id="i_dscr">—</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="tool" id="tool-land" role="tabpanel">
+        <div class="fields">
+          <label>Asking price $<input type="number" id="d_price" value="1150000" step="5000" min="0"></label>
+          <label>Size<input type="number" id="d_size" value="2.4" step="0.01" min="0"></label>
+          <label>Size unit<select id="d_unit"><option value="ac">Acres</option><option value="sf">Square feet</option></select></label>
+          <label>Target building SF<input type="number" id="d_bldg" value="18000" min="0"><span class="hint">For land cost per buildable SF</span></label>
+        </div>
+        <div class="out" aria-live="polite">
+          <div class="big" id="d_psf">—</div>
+          <div class="biglabel">Price per land square foot</div>
+          <dl>
+            <dt>Price per acre</dt><dd id="d_pac">—</dd>
+            <dt>Land area</dt><dd id="d_area">—</dd>
+            <dt>Land cost per building SF</dt><dd id="d_pbsf">—</dd>
+            <dt>Floor area ratio (FAR)</dt><dd id="d_far">—</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Tell us what you need</h2>
+        <p class="sub">Looking for space, selling a building, or sizing up a parcel — send a note and Austin will follow up directly.</p>
+        <address>
+          <strong>Tatka Realty LLC</strong><br>
+          14043 N 41st Pl<br>
+          Phoenix, AZ 85032<br>
+          Arizona broker license BR662519000
+        </address>
+      </div>
+      <form class="form" id="lead" name="commercial-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="commercial-inquiry">
+        <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label>Name<input name="name" autocomplete="name" required><span class="err" data-for="name"></span></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required><span class="err" data-for="email"></span></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+        <label>I'm looking to
+          <select name="interest">
+            <option>Lease commercial space</option>
+            <option>Buy commercial property</option>
+            <option>Sell a property</option>
+            <option>Buy or sell land</option>
+            <option>Get tenant representation</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label class="full">Property of interest<input name="property" id="propField" placeholder="Optional"></label>
+        <label class="full">Details<textarea name="message" placeholder="Size, budget, timing, submarket"></textarea></label>
+        <div class="full"><button class="btn" type="submit" id="sendBtn">Send inquiry</button></div>
+        <div class="status" id="status" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Tatka Realty LLC. Arizona broker license BR662519000. Looking for a home? <a href="#residential">Tatka Residential</a>.</span>
+    <span>Information deemed reliable but not guaranteed.</span>
+  </div>
+</footer>
+
+
+</div>
+<script>
+/* ---------- Photos: thumbnails and a lightbox (shared) ---------- */
+window.TatkaPhotos=(function(){
+  const url=id=>{id=String(id||"");return /^(https?:)?\/\//.test(id)||id.startsWith("/")?id:"/"+id};
+  let box=null,cur=null,idx=0,lastFocus=null;
+  function build(){
+    box=document.createElement("div");box.className="lightbox";box.hidden=true;
+    box.setAttribute("role","dialog");box.setAttribute("aria-modal","true");box.setAttribute("aria-label","Listing photos");
+    box.innerHTML='<div class="lb-top"><div class="lb-title"></div><button type="button" class="lb-close">Close</button></div><div class="lb-stage"><button type="button" class="lb-nav lb-prev" aria-label="Previous photo">‹</button><img alt=""><button type="button" class="lb-nav lb-next" aria-label="Next photo">›</button></div><div class="lb-count"></div>';
+    document.body.append(box);
+    box.querySelector(".lb-close").onclick=close;
+    box.querySelector(".lb-prev").onclick=()=>show(idx-1);
+    box.querySelector(".lb-next").onclick=()=>show(idx+1);
+    box.addEventListener("click",e=>{if(e.target===box||e.target.classList.contains("lb-stage"))close()});
+    document.addEventListener("keydown",e=>{if(box.hidden)return;if(e.key==="Escape")close();if(e.key==="ArrowLeft")show(idx-1);if(e.key==="ArrowRight")show(idx+1)});
+  }
+  function show(i){
+    const n=cur.photos.length;idx=(i+n)%n;
+    const img=box.querySelector("img");img.src=url(cur.photos[idx]);img.alt=`${cur.title}, photo ${idx+1} of ${n}`;
+    box.querySelector(".lb-count").textContent=`${idx+1} of ${n}`;
+    box.querySelectorAll(".lb-nav").forEach(b=>b.hidden=n<2);
+  }
+  function open(l,start){
+    if(!l.photos||!l.photos.length)return;
+    if(!box)build();
+    cur=l;lastFocus=document.activeElement;
+    box.querySelector(".lb-title").textContent=`${l.title}, ${l.city}`;
+    box.hidden=false;document.documentElement.classList.add("lb-open");show(start||0);
+    box.querySelector(".lb-close").focus();
+  }
+  function close(){box.hidden=true;document.documentElement.classList.remove("lb-open");lastFocus&&lastFocus.focus&&lastFocus.focus()}
+  function thumb(btn,l){
+    if(!btn)return;
+    const n=(l.photos||[]).length;
+    if(n){
+      btn.style.backgroundImage=`url("${url(l.photos[0])}")`;
+      btn.setAttribute("aria-label",`View ${n} photo${n>1?"s":""} of ${l.title}`);
+      if(n>1){const c=document.createElement("span");c.className="thumb-n";c.textContent=n;btn.append(c)}
+      btn.onclick=()=>open(l);
+    }else{
+      btn.classList.add("none");btn.disabled=true;btn.textContent="No photo yet";btn.setAttribute("aria-label","No photo yet");
+    }
+  }
+  return {url,open,thumb};
+})();
+</script>
+<script>
+/* ---------- Property detail page (shared by both sides) ---------- */
+window.TatkaDetail=(function(){
+  const views={};
+  const mk=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n};
+  const lines=t=>String(t||"").split(/\n/).map(x=>x.trim()).filter(Boolean);
+  function build(side){
+    const root=document.getElementById(side);
+    const pd=mk("div","pd");pd.hidden=true;pd.setAttribute("role","dialog");pd.setAttribute("aria-modal","true");
+    pd.innerHTML='<div class="pd-bar"><div class="wrap pd-bar-in"><button type="button" class="pd-back">‹ Back to listings</button><span class="pd-bar-title"></span></div></div><div class="wrap pd-body"></div>';
+    root.append(pd);
+    const v={pd,body:pd.querySelector(".pd-body"),title:pd.querySelector(".pd-bar-title"),last:null,listing:null,idx:0};
+    pd.querySelector(".pd-back").onclick=()=>close(side);
+    document.addEventListener("keydown",e=>{
+      if(pd.hidden)return;
+      const lb=document.querySelector(".lightbox");if(lb&&!lb.hidden)return;
+      if(e.key==="Escape")close(side);
+      if(e.key==="ArrowLeft")go(side,-1);if(e.key==="ArrowRight")go(side,1);
+    });
+    views[side]=v;return v;
+  }
+  function go(side,d){const v=views[side],n=(v.listing.photos||[]).length;if(n<2)return;setPhoto(side,(v.idx+d+n)%n)}
+  function setPhoto(side,i){
+    const v=views[side],l=v.listing;v.idx=i;
+    const main=v.body.querySelector(".pd-main img");if(main){main.src=TatkaPhotos.url(l.photos[i]);main.alt=`${l.title}, photo ${i+1} of ${l.photos.length}`}
+    const c=v.body.querySelector(".pd-count");if(c)c.textContent=`${i+1} / ${l.photos.length}`;
+    v.body.querySelectorAll(".pd-strip button").forEach((b,k)=>b.setAttribute("aria-current",k===i?"true":"false"));
+  }
+  function open(side,l){
+    const v=views[side]||build(side);
+    v.listing=l;v.idx=0;v.last=document.activeElement;
+    v.title.textContent=l.title;
+    const B=v.body;B.innerHTML="";
+    const photos=l.photos||[];
+    // gallery
+    const gal=mk("section","pd-gallery");
+    if(photos.length){
+      const main=mk("div","pd-main");
+      const img=mk("img");img.onclick=()=>TatkaPhotos.open(l,v.idx);img.title="Open full screen";
+      main.append(img);
+      if(photos.length>1){
+        const prev=mk("button","pd-nav pd-prev","‹");prev.type="button";prev.setAttribute("aria-label","Previous photo");prev.onclick=()=>go(side,-1);
+        const next=mk("button","pd-nav pd-next","›");next.type="button";next.setAttribute("aria-label","Next photo");next.onclick=()=>go(side,1);
+        main.append(prev,next);
+      }
+      const cnt=mk("span","pd-count");main.append(cnt);
+      const full=mk("button","pd-full","View full screen");full.type="button";full.onclick=()=>TatkaPhotos.open(l,v.idx);main.append(full);
+      gal.append(main);
+      if(photos.length>1){
+        const strip=mk("div","pd-strip");
+        photos.forEach((pid,i)=>{const b=mk("button");b.type="button";b.style.backgroundImage=`url("${TatkaPhotos.url(pid)}")`;b.setAttribute("aria-label",`Photo ${i+1}`);b.onclick=()=>setPhoto(side,i);strip.append(b)});
+        gal.append(strip);
+      }
+    }else{
+      gal.append(mk("div","pd-nophoto","Photos coming soon"));
+    }
+    B.append(gal);
+    // content
+    const grid=mk("div","pd-grid");
+    const main=mk("div","pd-copy");
+    const h=mk("h1",null,l.title);
+    const where=mk("p","pd-where",[l.city,l.area].filter(Boolean).join(", "));
+    main.append(h,where);
+    const paras=String(l.details||l.desc||"").split(/\n\s*\n/).map(x=>x.trim()).filter(Boolean);
+    if(paras.length){const d=mk("div","pd-desc");paras.forEach(t=>d.append(mk("p",null,t)));main.append(d)}
+    const facts=[["Type",l.type],["Size",l.size],["Location",[l.city,l.area].filter(Boolean).join(", ")]].filter(([,x])=>x);
+    lines(l.facts).forEach(t=>{const i=t.indexOf(":");facts.push(i>0?[t.slice(0,i).trim(),t.slice(i+1).trim()]:[t,""])});
+    if(facts.length){
+      main.append(mk("h2",null,"Key facts"));
+      const dl=mk("dl","pd-facts");
+      facts.forEach(([k,x])=>{dl.append(mk("dt",null,k),mk("dd",null,x||"—"))});
+      main.append(dl);
+    }
+    const feats=lines(l.features);
+    if(feats.length){main.append(mk("h2",null,"Features"));const ul=mk("ul","pd-feats");feats.forEach(t=>ul.append(mk("li",null,t)));main.append(ul)}
+    const aside=mk("aside","pd-card");
+    aside.append(mk("div","pd-price",l.price||"Contact for pricing"));
+    const sub=[l.deal==="Sale"?"For sale":l.deal==="Rent"?"For rent":l.deal==="Lease"?"For lease":"",l.priceNote].filter(Boolean).join(", ");
+    if(sub)aside.append(mk("div","pd-sub",sub));
+    const ask=mk("button","btn","Ask about this "+(side==="res"?"home":"property"));ask.type="button";
+    ask.onclick=()=>{close(side,true);window.__tatka[side].inquire(l.id)};
+    const map=mk("button","btn ghost","Show on map");map.type="button";
+    map.onclick=()=>{close(side,true);window.__tatka[side].showOnMap(l.id)};
+    aside.append(ask,map);
+    if(l.link){const a=mk("a","pd-link","More info, tour or flyer ↗");a.href=l.link;a.target="_blank";a.rel="noopener";aside.append(a)}
+    aside.append(mk("p","pd-broker","Austin Tatka, Tatka Realty LLC. Arizona broker license BR662519000."));
+    grid.append(main,aside);B.append(grid);
+    v.pd.hidden=false;v.pd.scrollTop=0;document.documentElement.classList.add("pd-open");
+    if(photos.length)setPhoto(side,0);
+    v.pd.querySelector(".pd-back").focus();
+  }
+  function close(side,skipFocus){
+    const v=views[side];if(!v||v.pd.hidden)return;
+    v.pd.hidden=true;document.documentElement.classList.remove("pd-open");
+    if(!skipFocus&&v.last&&v.last.focus)v.last.focus();
+  }
+  window.addEventListener("hashchange",()=>{for(const s in views)close(s,true)});
+  return {open,close};
+})();
+</script>
+<script>
+(function(){
+const root=document.getElementById("cre");
+
+/* ---------- Data (sample placeholders) ---------- */
+let LISTINGS = [];
+
+/* ---------- Map ---------- */
+const svgNS="http://www.w3.org/2000/svg";
+const map=document.getElementById("map");
+function el(tag,attrs,parent){const n=document.createElementNS(svgNS,tag);for(const k in attrs)n.setAttribute(k,attrs[k]);parent&&parent.appendChild(n);return n}
+(function drawMap(){
+  const g=document.getElementById("grid"), step=22;
+  for(let x=0;x<=700;x+=step) el("line",{x1:x,y1:0,x2:x,y2:440},g);
+  for(let y=0;y<=440;y+=step) el("line",{x1:0,y1:y,x2:700,y2:y},g);
+  const r=document.getElementById("roads");
+  // I-17 (north-south), I-10 (bent), Loop 101 & 202 abstractions, Central Ave
+  el("path",{d:"M308 0 L308 250",  "stroke-width":2.5},r);                       // I-17
+  el("path",{d:"M0 300 L260 300 L330 250 L400 250 L440 300 L520 420","stroke-width":2.5},r); // I-10
+  el("path",{d:"M220 300 L220 110 L420 110 L490 170 L490 250","stroke-width":1.5,"stroke-dasharray":"6 4"},r); // Loop 101
+  el("path",{d:"M400 250 L600 250 L620 320","stroke-width":1.5,"stroke-dasharray":"6 4"},r); // Loop 202
+  el("path",{d:"M352 0 L352 300","stroke-width":1},r); // Central Ave
+  const L=document.getElementById("labels");
+  const labels=[["I-17",314,20],["I-10",20,292],["Loop 101",228,104],["Central Ave",358,40],["Loop 202",540,244],
+    ["Buckeye",60,330],["Glendale",170,176],["Phoenix",330,232],["Scottsdale",470,125],["Tempe",420,300],["Mesa",555,312],["Gilbert",590,390],["Deer Valley",290,90]];
+  labels.forEach(([t,x,y])=>{const n=el("text",{x,y},L);n.textContent=t});
+})();
+function drawPins(){
+  const P=document.getElementById("pins");P.innerHTML="";
+  LISTINGS.forEach(l=>{
+    const grp=el("g",{class:"pin","data-id":l.id,tabindex:0,role:"button","aria-label":`${l.title}, ${l.city}`},P);
+    el("circle",{cx:l.x,cy:l.y,r:12},grp);
+    const t=el("text",{x:l.x,y:l.y+4,"text-anchor":"middle"},grp); t.textContent=l.id;
+    const open=()=>selectListing(l.id,true);
+    grp.addEventListener("click",open);
+    grp.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});
+  });
+}
+drawPins();
+
+const card=document.getElementById("mapCard");
+let activeId=null;
+function selectListing(id,fromMap){
+  activeId=id;
+  const l=LISTINGS.find(x=>x.id===id);
+  root.querySelectorAll(".pin").forEach(p=>p.classList.toggle("active",+p.dataset.id===id));
+  root.querySelectorAll(".row").forEach(r=>r.classList.toggle("hl",+r.dataset.id===id));
+  card.innerHTML="";
+  const b=document.createElement("b");b.textContent=l.title;
+  const s=document.createElement("div");s.textContent=[l.city,l.size,l.deal].filter(Boolean).join(", ");
+  const p=document.createElement("div");p.textContent=l.price;
+  const btn=document.createElement("button");btn.type="button";btn.textContent=fromMap?"See in listings":"Ask about this property";
+  btn.textContent="View details";btn.onclick=()=>TatkaDetail.open("cre",l);
+  if(l.photos&&l.photos.length){const im=document.createElement("img");im.src=TatkaPhotos.url(l.photos[0]);im.alt="";im.className="card-photo";im.onclick=()=>TatkaPhotos.open(l);card.append(im)}
+  card.append(b,s,p,btn);card.classList.add("show");
+}
+
+/* ---------- Listings ---------- */
+const state={type:"all",deal:"all",q:""};
+const list=document.getElementById("list");
+function renderList(){
+  const q=state.q.trim().toLowerCase();
+  const shown=LISTINGS.filter(l=>(state.type==="all"||l.type===state.type)&&(state.deal==="all"||l.deal===state.deal)&&(!q||[l.title,l.city,l.area,l.desc,l.type].join(" ").toLowerCase().includes(q)));
+  const ids=new Set(shown.map(l=>l.id));
+  root.querySelectorAll(".pin").forEach(p=>p.classList.toggle("dim",!ids.has(+p.dataset.id)));
+  list.innerHTML="";
+  if(!LISTINGS.length){const e=document.createElement("div");e.className="empty";e.textContent="New listings are on the way. Tell Austin what you need and he'll send options, including off-market space.";list.append(e);return}
+  if(!shown.length){const e=document.createElement("div");e.className="empty";e.textContent="No listings match these filters. Clear the search or pick another type — or send a request and we'll look off-market.";list.append(e);return}
+  shown.forEach(l=>{
+    const row=document.createElement("div");row.className="row"+(l.id===activeId?" hl":"");row.dataset.id=l.id;
+    row.innerHTML=`<span class="num">${l.id}</span><button class="thumb" type="button" data-a="photos"></button>
+      <div><h3></h3><div class="where"></div></div>
+      <div class="facts"></div>
+      <div class="price"><span></span><small></small></div>
+      <div class="act"><button class="btn ghost" data-a="details">View details</button><button class="btn" data-a="ask">Ask about this</button></div>`;
+    {const h3=row.querySelector("h3"),tb=document.createElement("button");tb.type="button";tb.className="title-link";tb.textContent=l.title;tb.onclick=()=>TatkaDetail.open("cre",l);h3.append(tb)}
+    row.querySelector(".where").textContent=[l.city,l.area].filter(Boolean).join(", ");
+    row.querySelector(".facts").textContent=[[l.type,l.size].filter(Boolean).join(", "),l.desc].filter(Boolean).join(". ");
+    row.querySelector(".price span").textContent=l.price;
+    row.querySelector(".price small").textContent=[`For ${String(l.deal||"").toLowerCase()}`,l.priceNote].filter(Boolean).join(", ");
+    row.querySelector('[data-a="details"]').onclick=()=>TatkaDetail.open("cre",l);
+    row.querySelector('[data-a="ask"]').onclick=()=>inquire(l.id);
+    TatkaPhotos.thumb(row.querySelector(".thumb"),l);{const b=row.querySelector(".thumb");b.disabled=false;b.onclick=()=>TatkaDetail.open("cre",l);b.setAttribute("aria-label","View details for "+l.title)}
+    list.append(row);
+  });
+}
+root.querySelectorAll(".chip").forEach(c=>c.addEventListener("click",()=>{
+  root.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed","false"));
+  c.setAttribute("aria-pressed","true");state.type=c.dataset.type;renderList();
+}));
+document.getElementById("deal").addEventListener("change",e=>{state.deal=e.target.value;renderList()});
+document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value;renderList()});
+function inquire(id){
+  const l=LISTINGS.find(x=>x.id===id);
+  document.getElementById("propField").value=`#${l.id} ${l.title}, ${l.city}`;
+  const sel=root.querySelector('[name="interest"]');
+  sel.value = l.type==="Land" ? "Buy or sell land" : (l.deal==="Lease" ? "Lease commercial space" : "Buy commercial property");
+  document.getElementById("contact").scrollIntoView();
+  setTimeout(()=>root.querySelector('[name="name"]').focus({preventScroll:true}),400);
+}
+window.__tatka=window.__tatka||{};
+window.__tatka.cre={inquire,showOnMap(id){selectListing(id,false);document.getElementById("map").scrollIntoView({block:"center"})},samples:LISTINGS.slice(),set(arr){LISTINGS=arr;activeId=null;card.classList.remove("show");card.innerHTML="";drawPins();renderList();}};
+renderList();
+
+/* ---------- Calculators ---------- */
+const $=id=>document.getElementById(id);
+const num=id=>{const v=parseFloat($(id).value);return isFinite(v)?v:0};
+const usd=(v,d=0)=>(v<0?"-":"")+"$"+Math.abs(v).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+const pct=v=>isFinite(v)?v.toFixed(2)+"%":"—";
+
+function calcLease(){
+  const sf=num("l_sf"),rate=num("l_rate"),nnn=num("l_nnn"),term=Math.max(1,Math.round(num("l_term"))),esc=num("l_esc")/100,free=num("l_free"),ti=num("l_ti"),build=num("l_build");
+  let base=0,opex=0,rows="";
+  for(let y=1;y<=term;y++){
+    const r=rate*Math.pow(1+esc,y-1), yb=r*sf, yo=nnn*sf*Math.pow(1.03,y-1);
+    base+=yb;opex+=yo;
+    rows+=`<tr><td>${y}</td><td>${usd(r,2)}</td><td>${usd(yb)}</td><td>${usd(yo)}</td></tr>`;
+  }
+  const freeVal=Math.min(free,12)*(rate*sf/12);
+  base-=freeVal;
+  const oop=Math.max(0,(build-ti)*sf);
+  const total=base+opex+oop;
+  $("l_month").textContent=usd((rate+nnn)*sf/12);
+  $("l_base").textContent=usd(base);
+  $("l_opex").textContent=usd(opex);
+  $("l_oop").textContent=usd(oop);
+  $("l_total").textContent=usd(total);
+  $("l_eff").textContent=sf?usd(total/sf/term,2):"—";
+  $("l_sched").innerHTML=rows+`<tr><td colspan="4" style="text-align:left;color:var(--mute)">Free rent applied to base in year one. NNN assumed to rise 3% per year.</td></tr>`;
+}
+function calcInvest(){
+  const price=num("i_price"),noi=num("i_noi"),ltv=num("i_ltv")/100,r=num("i_rate")/100/12,n=Math.max(1,num("i_am"))*12,cc=num("i_cc")/100;
+  const loan=price*ltv, pmt=r?loan*r/(1-Math.pow(1+r,-n)):loan/n, ds=pmt*12, cash=price-loan+price*cc, cf=noi-ds;
+  $("i_cap").textContent=price?pct(noi/price*100):"—";
+  $("i_loan").textContent=usd(loan);
+  $("i_cash").textContent=usd(cash);
+  $("i_ds").textContent=usd(ds);
+  $("i_cf").textContent=usd(cf);
+  $("i_coc").textContent=cash?pct(cf/cash*100):"—";
+  $("i_dscr").textContent=ds?(noi/ds).toFixed(2)+"x":"—";
+}
+function calcLand(){
+  const price=num("d_price"),size=num("d_size"),unit=$("d_unit").value,bldg=num("d_bldg");
+  const sf=unit==="ac"?size*43560:size, ac=sf/43560;
+  $("d_psf").textContent=sf?usd(price/sf,2):"—";
+  $("d_pac").textContent=ac?usd(price/ac):"—";
+  $("d_area").textContent=`${ac.toFixed(2)} ac, ${Math.round(sf).toLocaleString()} SF`;
+  $("d_pbsf").textContent=bldg?usd(price/bldg,2):"—";
+  $("d_far").textContent=sf&&bldg?(bldg/sf).toFixed(2):"—";
+}
+["lease","invest","land"].forEach(t=>root.querySelectorAll(`#tool-${t} input, #tool-${t} select`).forEach(i=>i.addEventListener("input",{lease:calcLease,invest:calcInvest,land:calcLand}[t])));
+calcLease();calcInvest();calcLand();
+root.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{
+  root.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected",x===b));
+  root.querySelectorAll(".tool").forEach(t=>t.classList.toggle("on",t.id==="tool-"+b.dataset.tool));
+}));
+
+/* ---------- Lead form ---------- */
+const form=$("lead"),status=$("status"),sendBtn=$("sendBtn");
+function showStatus(t){status.textContent=t;status.classList.add("show")}
+form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const data=Object.fromEntries(new FormData(form).entries());
+  let ok=true;
+  form.querySelectorAll(".err").forEach(x=>x.textContent="");
+  if(!data.name.trim()){form.querySelector('[data-for="name"]').textContent="Enter your name.";ok=false}
+  if(!/^\S+@\S+\.\S+$/.test(data.email)){form.querySelector('[data-for="email"]').textContent="Enter a valid email address.";ok=false}
+  if(!ok)return;
+  sendBtn.disabled=true;sendBtn.textContent="Sending…";
+  const lead={...data,createdAt:new Date().toISOString(),status:"new"};
+  try{
+    const res=await fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(new FormData(form)).toString()});
+    if(!res.ok)throw new Error("HTTP "+res.status);
+    form.reset();
+    showStatus(`Inquiry sent. Thanks, ${data.name.split(" ")[0]} — Austin will follow up at ${data.email}.`);
+  }catch(err){
+    showStatus("The inquiry didn't send. Check your connection and select Send inquiry again.");
+  }finally{sendBtn.disabled=false;sendBtn.textContent="Send inquiry"}
+});
+$("yr").textContent=new Date().getFullYear();
+
+})();
+</script>
+<script>
+(function(){
+const root=document.getElementById("res");
+let LISTINGS=[];
+const svgNS="http://www.w3.org/2000/svg";
+function el(tag,attrs,parent){const n=document.createElementNS(svgNS,tag);for(const k in attrs)n.setAttribute(k,attrs[k]);parent&&parent.appendChild(n);return n}
+(function drawMap(){
+  const g=document.getElementById("rgrid"),step=22;
+  for(let x=0;x<=700;x+=step)el("line",{x1:x,y1:0,x2:x,y2:440},g);
+  for(let y=0;y<=440;y+=step)el("line",{x1:0,y1:y,x2:700,y2:y},g);
+  const r=document.getElementById("rroads");
+  el("path",{d:"M308 0 L308 250","stroke-width":2.5},r);
+  el("path",{d:"M0 300 L260 300 L330 250 L400 250 L440 300 L520 420","stroke-width":2.5},r);
+  el("path",{d:"M220 300 L220 110 L420 110 L490 170 L490 250","stroke-width":1.5,"stroke-dasharray":"6 4"},r);
+  el("path",{d:"M400 250 L600 250 L620 320","stroke-width":1.5,"stroke-dasharray":"6 4"},r);
+  el("path",{d:"M352 0 L352 300","stroke-width":1},r);
+  const L=document.getElementById("rlabels");
+  [["I-17",314,20],["I-10",20,292],["Loop 101",228,104],["Central Ave",358,40],["Loop 202",540,244],
+   ["Buckeye",50,318],["Glendale",170,160],["Phoenix",330,232],["Scottsdale",478,205],["Tempe",445,290],["Mesa",555,312],["Gilbert",600,380],["Desert Hills",330,95]]
+   .forEach(([t,x,y])=>{const n=el("text",{x,y},L);n.textContent=t});
+})();
+function drawPins(){
+  const P=document.getElementById("rpins");P.innerHTML="";
+  LISTINGS.forEach(l=>{
+    const grp=el("g",{class:"pin","data-id":l.id,tabindex:0,role:"button","aria-label":`${l.title}, ${l.city}`},P);
+    el("circle",{cx:l.x,cy:l.y,r:12},grp);
+    const t=el("text",{x:l.x,y:l.y+4,"text-anchor":"middle"},grp);t.textContent=l.id;
+    const open=()=>select(l.id,true);
+    grp.addEventListener("click",open);
+    grp.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});
+  });
+}
+drawPins();
+const card=document.getElementById("rmapCard");
+let activeId=null;
+function select(id,fromMap){
+  activeId=id;
+  const l=LISTINGS.find(x=>x.id===id);
+  root.querySelectorAll(".pin").forEach(p=>p.classList.toggle("active",+p.dataset.id===id));
+  root.querySelectorAll(".row").forEach(r=>r.classList.toggle("hl",+r.dataset.id===id));
+  card.innerHTML="";
+  const b=document.createElement("b");b.textContent=l.title;
+  const s=document.createElement("div");s.textContent=[l.city,l.size].filter(Boolean).join(", ");
+  const p=document.createElement("div");p.textContent=l.price;
+  const btn=document.createElement("button");btn.type="button";btn.textContent=fromMap?"See in listings":"Ask about this home";
+  btn.textContent="View details";btn.onclick=()=>TatkaDetail.open("res",l);
+  if(l.photos&&l.photos.length){const im=document.createElement("img");im.src=TatkaPhotos.url(l.photos[0]);im.alt="";im.className="card-photo";im.onclick=()=>TatkaPhotos.open(l);card.append(im)}
+  card.append(b,s,p,btn);card.classList.add("show");
+}
+const state={type:"all",deal:"all",q:""};
+const list=document.getElementById("rlist");
+function renderList(){
+  const q=state.q.trim().toLowerCase();
+  const shown=LISTINGS.filter(l=>(state.type==="all"||l.type===state.type)&&(state.deal==="all"||l.deal===state.deal)&&(!q||[l.title,l.city,l.area,l.desc,l.type].join(" ").toLowerCase().includes(q)));
+  const ids=new Set(shown.map(l=>l.id));
+  root.querySelectorAll(".pin").forEach(p=>p.classList.toggle("dim",!ids.has(+p.dataset.id)));
+  list.innerHTML="";
+  if(!LISTINGS.length){const e=document.createElement("div");e.className="empty";e.textContent="New homes are on the way. Tell Austin what you're looking for and he'll send options as they come up.";list.append(e);return}
+  if(!shown.length){const e=document.createElement("div");e.className="empty";e.textContent="No homes match these filters. Clear the search or pick another type — or send a request and we'll watch for new listings.";list.append(e);return}
+  shown.forEach(l=>{
+    const row=document.createElement("div");row.className="row"+(l.id===activeId?" hl":"");row.dataset.id=l.id;
+    row.innerHTML=`<span class="num">${l.id}</span><button class="thumb" type="button" data-a="photos"></button><div><h3></h3><div class="where"></div></div><div class="facts"></div><div class="price"><span></span><small></small></div><div class="act"><button class="btn ghost" data-a="details">View details</button><button class="btn" data-a="ask">Ask about this</button></div>`;
+    {const h3=row.querySelector("h3"),tb=document.createElement("button");tb.type="button";tb.className="title-link";tb.textContent=l.title;tb.onclick=()=>TatkaDetail.open("res",l);h3.append(tb)}
+    row.querySelector(".where").textContent=[l.city,l.area].filter(Boolean).join(", ");
+    row.querySelector(".facts").textContent=[[l.type,l.size].filter(Boolean).join(", "),l.desc].filter(Boolean).join(". ");
+    row.querySelector(".price span").textContent=l.price;
+    row.querySelector(".price small").textContent=[`For ${String(l.deal||"").toLowerCase()}`,l.priceNote].filter(Boolean).join(", ");
+    row.querySelector('[data-a="details"]').onclick=()=>TatkaDetail.open("res",l);
+    row.querySelector('[data-a="ask"]').onclick=()=>inquire(l.id);
+    TatkaPhotos.thumb(row.querySelector(".thumb"),l);{const b=row.querySelector(".thumb");b.disabled=false;b.onclick=()=>TatkaDetail.open("res",l);b.setAttribute("aria-label","View details for "+l.title)}
+    list.append(row);
+  });
+}
+root.querySelectorAll(".chip").forEach(c=>c.addEventListener("click",()=>{
+  root.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed","false"));
+  c.setAttribute("aria-pressed","true");state.type=c.dataset.type;renderList();
+}));
+document.getElementById("rdeal").addEventListener("change",e=>{state.deal=e.target.value;renderList()});
+document.getElementById("rq").addEventListener("input",e=>{state.q=e.target.value;renderList()});
+function inquire(id){
+  const l=LISTINGS.find(x=>x.id===id);
+  document.getElementById("rpropField").value=`#${l.id} ${l.title}, ${l.city}`;
+  root.querySelector('[name="interest"]').value=l.type==="Lot"?"Buy a lot or land":(l.deal==="Rent"?"Rent a home":"Buy a home");
+  document.getElementById("r-contact").scrollIntoView();
+  setTimeout(()=>root.querySelector('#rlead [name="name"]').focus({preventScroll:true}),400);
+}
+window.__tatka=window.__tatka||{};
+window.__tatka.res={inquire,showOnMap(id){select(id,false);document.getElementById("rmap").scrollIntoView({block:"center"})},samples:LISTINGS.slice(),set(arr){LISTINGS=arr;activeId=null;card.classList.remove("show");card.innerHTML="";drawPins();renderList();}};
+renderList();
+
+const $=id=>document.getElementById(id);
+const num=id=>{const v=parseFloat($(id).value);return isFinite(v)?v:0};
+const usd=(v,d=0)=>(v<0?"-":"")+"$"+Math.abs(v).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+const pmtFactor=(rate,years)=>{const r=rate/100/12,n=Math.max(1,years)*12;return r?r/(1-Math.pow(1+r,-n)):1/n};
+function calcMortgage(){
+  const price=num("m_price"),down=Math.min(100,num("m_down"))/100,loan=price*(1-down);
+  const pi=loan*pmtFactor(num("m_rate"),num("m_term"));
+  const tax=num("m_tax")/12,ins=num("m_ins")/12,hoa=num("m_hoa"),pmi=down<0.2?loan*num("m_pmi")/100/12:0;
+  $("m_month").textContent=usd(pi+tax+ins+hoa+pmi);
+  $("m_loan").textContent=usd(loan);$("m_pi").textContent=usd(pi);$("m_taxm").textContent=usd(tax);
+  $("m_insm").textContent=usd(ins);$("m_pmim").textContent=usd(pmi);$("m_hoam").textContent=usd(hoa);
+  $("m_cash").textContent=usd(price*down);
+}
+function calcAfford(){
+  const pay=Math.max(0,num("a_inc")/12*num("a_dti")/100-num("a_debt"));
+  const f=pmtFactor(num("a_rate"),num("a_term")),t=num("a_ti")/100/12,down=num("a_down");
+  const price=Math.max(down,(pay+down*f)/(f+t));
+  const loan=Math.max(0,price-down);
+  $("a_max").textContent=usd(Math.round(price/1000)*1000);
+  $("a_pay").textContent=usd(pay);$("a_loan").textContent=usd(loan);
+  $("a_pi").textContent=usd(loan*f);$("a_tim").textContent=usd(price*t);
+}
+function calcNet(){
+  const price=num("s_price"),comm=price*num("s_comm")/100,close=price*num("s_close")/100,other=num("s_conc")+num("s_rep"),loan=num("s_loan");
+  const total=comm+close+other;
+  $("s_net").textContent=usd(price-total-loan);
+  $("s_commv").textContent=usd(comm);$("s_closev").textContent=usd(close);$("s_other").textContent=usd(other);
+  $("s_loanv").textContent=usd(loan);$("s_total").textContent=usd(total);
+}
+const calcs={mortgage:calcMortgage,afford:calcAfford,net:calcNet};
+Object.keys(calcs).forEach(t=>root.querySelectorAll(`#rtool-${t} input, #rtool-${t} select`).forEach(i=>i.addEventListener("input",calcs[t])));
+Object.values(calcs).forEach(f=>f());
+root.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{
+  root.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected",x===b));
+  root.querySelectorAll(".tool").forEach(t=>t.classList.toggle("on",t.id==="rtool-"+b.dataset.tool));
+}));
+
+const form=$("rlead"),status=$("rstatus"),sendBtn=$("rsendBtn");
+form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const data=Object.fromEntries(new FormData(form).entries());
+  let ok=true;
+  form.querySelectorAll(".err").forEach(x=>x.textContent="");
+  if(!data.name.trim()){form.querySelector('[data-for="name"]').textContent="Enter your name.";ok=false}
+  if(!/^\S+@\S+\.\S+$/.test(data.email)){form.querySelector('[data-for="email"]').textContent="Enter a valid email address.";ok=false}
+  if(!ok)return;
+  sendBtn.disabled=true;sendBtn.textContent="Sending…";
+  const lead={...data,source:"residential",createdAt:new Date().toISOString(),status:"new"};
+  try{
+    const res=await fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(new FormData(form)).toString()});
+    if(!res.ok)throw new Error("HTTP "+res.status);
+    form.reset();
+    status.textContent=`Inquiry sent. Thanks, ${data.name.trim().split(" ")[0]} — Austin will follow up at ${data.email}.`;status.classList.add("show");
+  }catch(err){status.textContent="The inquiry didn't send. Check your connection and select Send inquiry again.";status.classList.add("show")}
+  finally{sendBtn.disabled=false;sendBtn.textContent="Send inquiry"}
+});
+$("ryr").textContent=new Date().getFullYear();
+})();
+
+</script>
+<script>
+
+/* ---------- Listings from the admin (content/*.json) + domain routing ---------- */
+(function(){
+  const CITIES={"Phoenix":[362,228],"North Phoenix":[322,88],"Deer Valley":[300,122],"Paradise Valley":[420,178],"Scottsdale":[470,165],
+    "Tempe":[432,270],"Mesa":[556,288],"Gilbert":[590,358],"Chandler":[520,372],"Queen Creek":[640,398],"Glendale":[212,158],"Peoria":[182,112],
+    "Surprise":[110,82],"Goodyear":[132,300],"Avondale":[172,300],"Buckeye":[80,288],"Cave Creek":[360,38],"Fountain Hills":[600,150],"Other Valley location":[350,250]};
+  function place(list){
+    const seen={};
+    return list.filter(l=>l&&l.title&&l.active!==false).map((l,i)=>{
+      const base=CITIES[l.city]||CITIES["Other Valley location"],n=(seen[l.city]=(seen[l.city]||0)+1)-1;
+      const a=n*2.1,rad=18*Math.ceil(n/3);
+      const photos=(l.photos||[]).map(p=>typeof p==="string"?p:(p&&(p.image||p.photo))).filter(Boolean);
+      return {...l,id:i+1,photos,x:Math.round(base[0]+(n?Math.cos(a)*rad:0)),y:Math.round(base[1]+(n?Math.sin(a)*rad:0))};
+    });
+  }
+  [["res","content/residential.json"],["cre","content/commercial.json"]].forEach(([side,file])=>{
+    fetch(file,{cache:"no-cache"}).then(r=>r.ok?r.json():{listings:[]}).then(d=>{
+      const api=window.__tatka&&window.__tatka[side];if(api)api.set(place(d.listings||[]));
+    }).catch(()=>{});
+  });
+})();
+(function(){
+  const views={home:document.getElementById("home"),cre:document.getElementById("cre"),res:document.getElementById("res")};
+  const creIds=new Set(["commercial","services","listings","tools","contact"]);
+  const resIds=new Set(["residential","r-about","r-services","r-listings","r-tools","r-contact"]);
+  const titles={home:"Tatka Realty",cre:"Tatka Commercial",res:"Tatka Residential"};
+  function route(){
+    const id=decodeURIComponent(location.hash.slice(1));
+    const onCre=/(^|\.)tatkacre\.com$/i.test(location.hostname);
+    const v=creIds.has(id)?"cre":resIds.has(id)?"res":(!id&&onCre)?"cre":"home";
+    for(const k in views)views[k].hidden=k!==v;
+    document.title=titles[v];
+    const target=(id==="commercial"||id==="residential")?null:(v!=="home"&&document.getElementById(id));
+    if(target)requestAnimationFrame(()=>target.scrollIntoView());else window.scrollTo(0,0);
+  }
+  window.addEventListener("hashchange",route);route();
+})();
+/* ---------- Desert ridgelines with saguaros, drawn per dark panel ---------- */
+(function(){
+  const cans=[...document.querySelectorAll("canvas.ridges")];
+  function rand(seed){return()=>{seed=(seed*16807)%2147483647;return(seed-1)/2147483646}}
+  function draw(c,i){
+    const w=c.clientWidth,h=c.clientHeight;if(!w||!h)return;
+    const d=Math.min(2,window.devicePixelRatio||1);c.width=w*d;c.height=h*d;
+    const g=c.getContext("2d");g.setTransform(d,0,0,d,0,0);
+    const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,"#000");sky.addColorStop(.62,"#151515");sky.addColorStop(1,"#2b2b2b");
+    g.fillStyle=sky;g.fillRect(0,0,w,h);
+    g.fillStyle="rgba(255,255,255,.06)";g.beginPath();g.arc(w*.78,h*.38,Math.min(w,h)*.11,0,7);g.fill();
+    const R=rand(97+i*31),layers=[["#363636",.56,.1],["#222",.66,.08],["#161616",.76,.06],["#0a0a0a",.87,.045]];
+    layers.forEach(([col,base,amp],li)=>{
+      const ph=[R()*6,R()*6,R()*6],k=[1.3+R(),3.1+R()*2,7+R()*4];
+      const y=x=>h*base-h*amp*(Math.sin(x/w*k[0]*Math.PI+ph[0])*.6+Math.sin(x/w*k[1]*Math.PI+ph[1])*.3+Math.sin(x/w*k[2]*Math.PI+ph[2])*.1+.4);
+      g.fillStyle=col;g.beginPath();g.moveTo(0,h);for(let x=0;x<=w;x+=4)g.lineTo(x,y(x));g.lineTo(w,h);g.fill();
+      if(li===layers.length-1){
+        const n=Math.max(2,Math.round(w/260));
+        for(let s=0;s<n;s++){
+          const x=(s+.3+R()*.4)/n*w,base=y(x)+2,sh=Math.min(h*.2,90)*(.6+R()*.5),tw=Math.max(6,sh*.12);
+          g.fillStyle="#050505";g.lineCap="round";g.lineJoin="round";g.strokeStyle="#050505";
+          g.lineWidth=tw;g.beginPath();g.moveTo(x,base);g.lineTo(x,base-sh);g.stroke();
+          [[-1,.45+R()*.15],[1,.55+R()*.15]].forEach(([dir,at])=>{
+            if(R()<.12)return;const ay=base-sh*at,ax=x+dir*sh*.26,top=ay-sh*(.26+R()*.14);
+            g.lineWidth=tw*.8;g.beginPath();g.moveTo(x,ay);g.lineTo(ax,ay);g.lineTo(ax,top);g.stroke();
+          });
+        }
+      }
+    });
+  }
+  const all=()=>cans.forEach(draw);
+  all();
+  let t;window.addEventListener("resize",()=>{clearTimeout(t);t=setTimeout(all,120)});
+  window.addEventListener("hashchange",()=>requestAnimationFrame(all));
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(all);
+})();
+
+document.querySelectorAll('#res [data-tab]').forEach(a=>a.addEventListener("click",()=>{
+  document.querySelector(`#res .tabs button[data-tool="${a.dataset.tab}"]`)?.click();
+}));
+</script>
+</body>
+</html>
